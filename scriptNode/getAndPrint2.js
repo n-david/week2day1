@@ -5,19 +5,18 @@ function getAndPrintHTML() {
     host: 'sytantris.github.io',
     path: '/http-examples/step2.html'
   };
-
-  var str = '';
+  var buffer = '';
 
   https.get(requestOptions, (response) => {
 
     response.setEncoding('utf8');
 
     response.on('data', (data) => {
-      str += data;
+      buffer += data;
     });
 
     response.on('end', () => {
-      console.log(str);
+      console.log(buffer);
       console.log('Response stream complete.');
     });
 
